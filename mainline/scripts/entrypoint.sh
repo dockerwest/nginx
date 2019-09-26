@@ -13,13 +13,13 @@ if [ ! -z $DNS_RESOLVER ]; then
             -i /etc/nginx/include/internals.conf
     fi
     sed -e 's/\(fastcgi_pass\).*/\1 $upstream;/' \
-        -i /etc/nginx/conf.d/default.conf
+        -i /etc/nginx/include/application.conf
 else
     if grep resolver /etc/nginx/include/internals.conf > /dev/null 2>&1; then
         sed -e '/resolver/d' -i /etc/nginx/include/internals.conf
     fi
     sed -e 's/\(fastcgi_pass\).*/\1 application:9000;/' \
-        -i /etc/nginx/conf.d/default.conf
+        -i /etc/nginx/include/application.conf
 fi
 
 nginxconfenable='default-http.conf'
