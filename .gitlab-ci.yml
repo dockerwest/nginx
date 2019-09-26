@@ -4,6 +4,7 @@ stages:
   - prepare
   - build
   - release
+  - trigger
 
 prepare:stable:
   stage: prepare
@@ -59,3 +60,37 @@ release:mainline:
   only:
     - master
 
+trigger:nginx-laravel:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-laravel
+
+trigger:nginx-magento1:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-magento1
+
+trigger:nginx-magento2:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-magento2
+
+trigger:nginx-pimcore4:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-pimcore4
+
+trigger:nginx-pimcore5:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-pimcore5
+
+trigger:nginx-symfony3:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-symfony3
+
+trigger:nginx-symfony4:
+  stage: trigger
+  trigger:
+    project: DockerWest/nginx-symfony4
