@@ -1,0 +1,61 @@
+---
+
+stages:
+  - prepare
+  - build
+  - release
+
+prepare:stable:
+  stage: prepare
+  tags:
+    - dockerwest
+  script:
+    - docker pull nginx:stable-alpine
+  only:
+    - master
+
+prepare:stable:
+  stage: prepare
+  tags:
+    - dockerwest
+  script:
+    - docker pull nginx:mainline-alpine
+  only:
+    - master
+
+build:stable:
+  stage: build
+  tags:
+    - dockerwest
+  script:
+    - cd stable; ./build.sh
+  only:
+    - master
+
+build:mainline:
+  stage: build
+  tags:
+    - dockerwest
+  script:
+    - cd mainline; ./build.sh
+  only:
+    - master
+
+release:stable:
+  stage: release
+  tags:
+    - dockerwest
+  script:
+    - docker push dockerwest/nginx:stable
+  only:
+    - master
+
+release:mainline:
+  stage: release
+  tags:
+    - dockerwest
+  script:
+    - docker push dockerwest/nginx:mainline
+  only:
+    - master
+
