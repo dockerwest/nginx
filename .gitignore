@@ -1,6 +1,6 @@
 /mainline/scripts/etc/nginx/certs/default.crt
 /mainline/scripts/etc/nginx/certs/private/default.key
-/mainline/scripts/etc/nginx/dhparm.pem
+/mainline/scripts/etc/nginx/dhparam.pem
 /stable/scripts/etc/nginx/certs/default.crt
 /stable/scripts/etc/nginx/certs/private/default.key
-/stable/scripts/etc/nginx/dhparm.pem
+/stable/scripts/etc/nginx/dhparam.pem
